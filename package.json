@@ -1,22 +1,25 @@
 {
-  "name": "electron-quick-start",
+  "name": "rename_desktop",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "main": "main.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "tsc": "npm run clear && tsc",
+    "tswatch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfengsky/rename_desktop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfengsky/rename_desktop/issues"
+  },
+  "homepage": "https://github.com/jfengsky/rename_desktop#readme",
   "devDependencies": {
-    "electron": "^2.0.0"
+    "typescript": "^2.9.2",
+    "webpack": "^4.15.0"
   }
 }
