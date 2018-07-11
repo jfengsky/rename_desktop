@@ -24,11 +24,19 @@ var FileItem = function (_a) {
 var FileList = /** @class */ (function (_super) {
     __extends(FileList, _super);
     function FileList() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.changeName = function (e) {
+            _this;
+            debugger;
+        };
+        return _this;
     }
     FileList.prototype.render = function () {
         var list = this.props.list;
-        return (React.createElement("ul", null, !!list && list.map(function (item, index) { return React.createElement(FileItem, { key: index, data: item }); })));
+        return (React.createElement("div", null,
+            React.createElement("input", { type: 'text' }),
+            React.createElement("button", { onClick: this.changeName }, "\u6539\u540D"),
+            React.createElement("ul", null, !!list && list.map(function (item, index) { return React.createElement(FileItem, { key: index, data: item }); }))));
     };
     return FileList;
 }(React.Component));

@@ -4,6 +4,8 @@
 
 import * as React from 'react'
 
+import { rename } from '../util/files'
+
 export interface fileInfo {
   lastModified: number
   lastModifiedDate: any
@@ -44,11 +46,21 @@ export default class FileList extends React.Component<ITProps, ITState> {
       list
     } = this.props
     return (
-      <ul>
-        {
-          !!list && list.map((item: fileInfo, index: number) => <FileItem key={index} data={item} />)
-        }
-      </ul>
+      <div>
+        <input type='text' />
+        <button onClick={this.changeName}>改名</button>
+        <ul>
+          {
+            !!list && list.map((item: fileInfo, index: number) => <FileItem key={index} data={item} />)
+          }
+        </ul>
+      </div>
     )
+  }
+
+  changeName = (e: any) => {
+    this
+    debugger
+    
   }
 }
