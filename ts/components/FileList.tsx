@@ -47,7 +47,7 @@ export default class FileList extends React.Component<ITProps, ITState> {
     } = this.props
     return (
       <div>
-        <input type='text' />
+        <input type='text' ref='newName' />
         <button onClick={this.changeName}>改名</button>
         <ul>
           {
@@ -58,9 +58,11 @@ export default class FileList extends React.Component<ITProps, ITState> {
     )
   }
 
-  changeName = (e: any) => {
-    this
-    debugger
-    
+  changeName = async (e: any) => {
+    let file: fileInfo = this.props.list[0]
+    let newName: string = (this.refs.newName as HTMLInputElement).value
+    let { path, name } = file
+    let result = await rename({ path, name, newName})
+    console.log(result)
   }
 }
