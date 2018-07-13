@@ -63,6 +63,6 @@ export default class FileList extends React.Component<ITProps, ITState> {
     let newName: string = (this.refs.newName as HTMLInputElement).value
     let { path, name } = file
     let result = await rename({ path, name, newName})
-    console.log(result)
+    
   }
 }
