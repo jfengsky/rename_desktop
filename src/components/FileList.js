@@ -61,6 +61,10 @@ var FileList = /** @class */ (function (_super) {
     __extends(FileList, _super);
     function FileList() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.changeNewName = function (e) {
+            var newName = _this.refs.newName.value;
+            console.log(newName);
+        };
         _this.changeName = function (e) { return __awaiter(_this, void 0, void 0, function () {
             var file, newName, path, name, result;
             return __generator(this, function (_a) {
@@ -72,7 +76,6 @@ var FileList = /** @class */ (function (_super) {
                         return [4 /*yield*/, files_1.rename({ path: path, name: name, newName: newName })];
                     case 1:
                         result = _a.sent();
-                        console.log(result);
                         return [2 /*return*/];
                 }
             });
@@ -82,9 +85,13 @@ var FileList = /** @class */ (function (_super) {
     FileList.prototype.render = function () {
         var list = this.props.list;
         return (React.createElement("div", null,
-            React.createElement("input", { type: 'text', ref: 'newName' }),
+            React.createElement("input", { type: 'text', ref: 'newName', onChange: this.changeNewName }),
             React.createElement("button", { onClick: this.changeName }, "\u6539\u540D"),
-            React.createElement("ul", null, !!list && list.map(function (item, index) { return React.createElement(FileItem, { key: index, data: item }); }))));
+            React.createElement("ul", null,
+                React.createElement("li", null,
+                    React.createElement("b", null, "\u6587\u4EF6\u540D"),
+                    React.createElement("em", null, "\u5927\u5C0F")),
+                !!list && list.map(function (item, index) { return React.createElement(FileItem, { key: index, data: item }); }))));
     };
     return FileList;
 }(React.Component));

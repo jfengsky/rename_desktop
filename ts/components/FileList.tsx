@@ -47,9 +47,13 @@ export default class FileList extends React.Component<ITProps, ITState> {
     } = this.props
     return (
       <div>
-        <input type='text' ref='newName' />
+        <input type='text' ref='newName' onChange={this.changeNewName} />
         <button onClick={this.changeName}>改名</button>
         <ul>
+          <li>
+            <b>文件名</b>
+            <em>大小</em>
+          </li>
           {
             !!list && list.map((item: fileInfo, index: number) => <FileItem key={index} data={item} />)
           }
@@ -58,11 +62,17 @@ export default class FileList extends React.Component<ITProps, ITState> {
     )
   }
 
+  changeNewName = (e: any) => {
+    let newName: string = (this.refs.newName as HTMLInputElement).value
+    console.log(newName)
+    
+  }
+
   changeName = async (e: any) => {
     let file: fileInfo = this.props.list[0]
     let newName: string = (this.refs.newName as HTMLInputElement).value
     let { path, name } = file
-    let result = await rename({ path, name, newName})
-    
+    let result = await rename({ path, name, newName })
+
   }
 }
